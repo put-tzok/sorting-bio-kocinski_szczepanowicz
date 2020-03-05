@@ -3,26 +3,64 @@
 #include <stdlib.h>
 #include <time.h>
 
-unsigned int ns[] = { 10, /* TODO: fill in "n" i.e. instance sizes */ };
+unsigned int ns[] = { 10, 100, 1000, 12500, 150000, 1000000 };
 
 void fill_increasing(int *t, unsigned int n) {
-    // TODO: implement
+    for(int i=0; i < n; i++)
+        t[i]=i;
 }
 
 void fill_decreasing(int *t, unsigned int n) {
-    // TODO: implement
+    int j=0;
+    for(int i=n; i > 0; i-- )
+    {t[j]=i;
+        j++;}
 }
 
 void fill_vshape(int *t, unsigned int n) {
-    // TODO: implement
+    int a=0;
+    int b=n-1;
+    for(int i=n; i > 0;i++)
+    if(i%2==0)
+    {
+        t[[b]=i;
+        b--;
+    }
+    else
+       {
+          t[a]=i;
+          a++ ;
+       } 
 }
 
 void selection_sort(int *t, unsigned int n) {
-    // TODO: implement
+    int i, j, najmniejszy;
+    for(i=0;i<n-1;i++)
+    {
+    najmniejszy=i;
+    for(j=1;j<n;j++)
+    if(t[j]<t[najmniejszy])
+       {
+        najmniejszy=j;
+    swap(&t[najmniejszy], &t[i]);
+       }
+
+    }
 }
 
 void insertion_sort(int *t, unsigned int n) {
-    // TODO: implement
+    int i, j, pointer;
+    for(i=1; i<n;i++)
+    { pointer=t[i];
+    j=i-1;
+    while(j>=0 && t[j]>pointer)
+    {
+      swap(&t[j+1],&t[j]);
+      j=j-1;
+    }
+    t[j+1]= pointer
+    }
+
 }
 
 void quick_sort(int *t, unsigned int n) {
