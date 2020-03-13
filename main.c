@@ -67,10 +67,35 @@ void quick_sort(int *t, unsigned int n) {
     // TODO: implement
 }
 
-void heap_sort(int *t, unsigned int n) {
-    // TODO
+void heap(int tab[], int n, int i)
+{
+    int naj = i; 
+    int l = 2*i + 1; 
+    int r = 2*i + 2; 
+    
+    if (l < n && tab[l] > tab[naj])
+        naj = l;
+    
+    if (r < n && tab[r] > tab[naj])
+        naj = r;
+    
+    if (naj != i)
+    {
+        swap(tab[i], tab[naj]);
+        heap(tab, n, naj);
+    }
 }
 
+void heap_sort(int *t, unsigned int n) {
+    for (int i = n / 2 - 1; i >= 0; i--)
+        heap(t, n, i);
+    for (int i=n-1; i>=0; i--)
+    {
+        swap(t[0], t[i]);
+        heap(t, i, 0);
+    }
+}
+          
 void fill_random(int *t, unsigned int n) {
     for (unsigned int i = 0; i < n; i++) {
         t[i] = rand();
