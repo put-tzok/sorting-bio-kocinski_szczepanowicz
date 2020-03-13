@@ -63,8 +63,49 @@ void insertion_sort(int *t, unsigned int n) {
 
 }
 
-void quick_sort(int *t, unsigned int n) {
-    // TODO: implement
+void swap(int *a, int *b)
+{
+  int t = *a;
+  *a = *b;
+  *b = t;
+}
+int partition(int *t, int p, int r)
+{
+  int x = t[r];
+  int i = (p - 1);
+
+  for (int j = p; j < r; j++)
+  {
+    if (t[j] <= x)
+    {
+      i=i+1;
+      swap(&t[i], &t[j]);
+    }
+  }
+  i=i+1;
+  swap(&t[i], &t[r]);
+  return i;
+}
+
+int random_partition(int *t, int p, int r)
+{
+     i=random(p,r);
+     swap(&t[i], &t[r]);
+     return partition(t, p, r);
+}
+
+void quick_sort_(int *t, int p, int r)
+{
+  if (p < r)
+  {
+    int q = partition(t, p, r);
+    quick_sort_(t, p, q - 1);
+    quick_sort_(t, q + 1, r);
+  }
+}
+void quick_sort(int *t, unsigned int n)
+{
+     quick_sort_(t, 0, n-1);
 }
 
 void heap(int tab[], int n, int i)
