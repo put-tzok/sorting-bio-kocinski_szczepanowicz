@@ -211,7 +211,7 @@ int main() {
 
             for (unsigned int k = 0; k < sizeof(ns) / sizeof(*ns); k++) {
                 unsigned int n = ns[k];
-                int *t = malloc(n * sizeof(*t));
+                int *t = new int(n * sizeof(*t));
 
                 fill(t, n);
                 check(t, n);
@@ -222,7 +222,7 @@ int main() {
                 is_sorted(t, n);
 
                 printf("%s\t%s\t%u\t%f\n", sort_names[i], fill_names[j], n, (double)(end - begin) / (double) CLOCKS_PER_SEC);
-                free(t);
+                delete t;
             }
         }
     }
