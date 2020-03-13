@@ -65,7 +65,7 @@ void insertion_sort(int *t, unsigned int n) {
       swap(&t[j+1],&t[j]);
       j=j-1;
     }
-    t[j+1]= pointer
+    t[j+1]= pointer;
     }
 
 }
@@ -90,7 +90,7 @@ int partition(int *t, int p, int r)
 
 int random_partition(int *t, int p, int r)
 {
-     i=random(p,r);
+     int i=random(p,r);
      swap(&t[i], &t[r]);
      return partition(t, p, r);
 }
