@@ -23,7 +23,7 @@ void fill_vshape(int *t, unsigned int n) {
     for(int i=n; i > 0;i++)
     if(i%2==0)
     {
-        t[[b]=i;
+        t[b]=i;
         b--;
     }
     else
@@ -31,6 +31,13 @@ void fill_vshape(int *t, unsigned int n) {
           t[a]=i;
           a++ ;
        } 
+}
+
+void swap(int *a, int *b)
+{
+  int t = *a;
+  *a = *b;
+  *b = t;
 }
 
 void selection_sort(int *t, unsigned int n) {
@@ -63,12 +70,6 @@ void insertion_sort(int *t, unsigned int n) {
 
 }
 
-void swap(int *a, int *b)
-{
-  int t = *a;
-  *a = *b;
-  *b = t;
-}
 int partition(int *t, int p, int r)
 {
   int x = t[r];
