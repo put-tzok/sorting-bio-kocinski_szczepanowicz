@@ -17,6 +17,12 @@ void fill_decreasing(int *t, unsigned int n) {
         j++;}
 }
 
+void fill_random(int *t, unsigned int n) {
+    for (unsigned int i = 0; i < n; i++) 
+    {
+        t[i] = rand();
+    }
+}
 void fill_vshape(int *t, unsigned int n) {
     int a=0;
     int b=n-1;
@@ -88,6 +94,20 @@ int partition(int *t, int p, int r)
   return i;
 }
 
+int random(int min, int max)
+{
+    int tmp;
+    if (max>=min)
+        max-= min;
+    else
+    {
+        tmp= min - max;
+        min= max;
+        max= tmp;
+    }
+    return max ? (rand() % max + min) : min;
+}
+
 int random_partition(int *t, int p, int r)
 {
      int i=random(p,r);
@@ -123,7 +143,7 @@ void heap(int tab[], int n, int i)
     
     if (naj != i)
     {
-        swap(tab[i], tab[naj]);
+        swap(&tab[i], &tab[naj]);
         heap(tab, n, naj);
     }
 }
@@ -133,16 +153,12 @@ void heap_sort(int *t, unsigned int n) {
         heap(t, n, i);
     for (int i=n-1; i>=0; i--)
     {
-        swap(t[0], t[i]);
+        swap(&t[0], &t[i]);
         heap(t, i, 0);
     }
 }
           
-void fill_random(int *t, unsigned int n) {
-    for (unsigned int i = 0; i < n; i++) {
-        t[i] = rand();
-    }
-}
+
 
 void is_random(int *t, unsigned int n) {
     return;
