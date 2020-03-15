@@ -5,7 +5,8 @@
 #include <math.h>
 
 
-unsigned int ns[] = {10, 100, 1000, 10000, 35000};
+unsigned int ns[] = {10, 100, 1000, 3000, 6000, 10000, 15000, 20000, 30000, 40000};
+
 
 void fill_increasing(int *t, unsigned int n) {
     for(int i = 0; i < n; i++)
